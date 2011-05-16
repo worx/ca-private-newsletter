@@ -1,0 +1,9 @@
+/* CA Private Newsletter CSS */
+  /* Template One */
+  #ca-private-newsletter-template-one .views-field-view-node {float: right; margin-right: 10px;}
+  #ca-private-newsletter-template-one .views-field-nothing {clear: both; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #D2D2D2;}
+  #ca-private-newsletter-template-one .views-row-last .views-field-nothing {border: none;}
+  .ca-private-newsletter-template-one .view-content .views-field-view-node {text-align: right; margin-right: 10px;}
+  .ca-private-newsletter-template-one .view-content .views-field-nothing {clear: both; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #D2D2D2;}
+  .ca-private-newsletter-template-one .view-content .views-row-last .views-field-nothing {border: none;}
+
