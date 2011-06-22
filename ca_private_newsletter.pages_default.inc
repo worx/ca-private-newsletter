@@ -461,6 +461,94 @@ else {
   $page = new stdClass;
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'private_newsletter_add_user';
+  $page->task = 'page';
+  $page->admin_title = 'Add User';
+  $page->admin_description = '';
+  $page->path = 'private-newsletter/users/add_user';
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'worx_plugins_role_access',
+        'settings' => array(
+          'worx_role' => 'private newsletter administrator',
+        ),
+        'not' => FALSE,
+      ),
+      1 => array(
+        'name' => 'php',
+        'settings' => array(
+          'description' => 'If user 1',
+          'php' => 'global $user;
+if ($user->uid == 1) {
+  return TRUE;
+}
+else {
+  return FALSE;
+}',
+        ),
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'or',
+    'type' => 'none',
+    'settings' => NULL,
+  );
+  $page->menu = array(
+    'type' => 'tab',
+    'title' => 'Add User',
+    'name' => 'navigation',
+    'weight' => '1',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array();
+  $page->default_handlers = array();
+  $handler = new stdClass;
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_private_newsletter_add_user_menu_context';
+  $handler->task = 'page';
+  $handler->subtask = 'private_newsletter_add_user';
+  $handler->handler = 'menu_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Context Admin',
+    'no_blocks' => FALSE,
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'context_admin_options' => 'user_create_menu',
+    'submitted_context' => NULL,
+    'context_admin_user_roles' => array(
+      2 => 2,
+      10 => 10,
+      11 => 0,
+      3 => 0,
+      6 => 0,
+      7 => 0,
+      8 => 0,
+      9 => 0,
+      4 => 0,
+      5 => 0,
+    ),
+    'context_admin_user_roles_alter' => 1,
+    'context_admin_user_status' => '1',
+    'context_admin_user_status_alter' => 0,
+    'context_admin_user_notify' => 1,
+  );
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['private_newsletter_add_user'] = $page;
+
+  $page = new stdClass;
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'private_newsletter_user_admin';
   $page->task = 'page';
   $page->admin_title = 'Private Newsletter User Administration';
